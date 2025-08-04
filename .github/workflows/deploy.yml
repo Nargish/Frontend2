@@ -25,7 +25,7 @@ jobs:
                         run: npm run build
 
                       - name: deploy to git
-                        uses: peaceriris/actions-gh-pages@v4
+                        uses: peaceriris/actions-gh-pages@v3
                         with:
                             github_token: ${{secrets.GITHUB.TOKEN}}
                             publish_dir: dist
