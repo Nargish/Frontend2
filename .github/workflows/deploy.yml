@@ -1,0 +1,39 @@
+name: Deploy React
+on: 
+    push: 
+         branches: 
+                 - main 
+
+jobs:
+    build-deploy:
+                    runs-on: ubuntu-latest
+
+                    steps:
+
+                      - name: Checkout code
+                        uses: actions/checkout@v3
+
+                      - name: Setup Node.js
+                        uses: actions/setup-node@v3
+                        with: 
+                            node-version: 18
+
+                      - name: Install Dependencies
+                        run: npm install
+
+                      - name: build
+                        run: npm run build
+
+                      - name: deploy to git
+                        uses: peaceriris/actions-gh-pages@v4
+                        with:
+                            github_token: ${{secrets.GITHUB.TOKEN}}
+                            publish_dir: dist
+
+
+
+
+
+
+
+            
