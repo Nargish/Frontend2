@@ -1,0 +1,107 @@
+/* resumen.scss */
+
+.pagina-resumen {
+  padding: 1.5rem 1rem 4rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  box-sizing: border-box;
+
+  .volver {
+    margin-bottom: 0.5rem;
+  }
+
+  .titulo-resumen {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin: 0.5rem 0 1rem;
+    line-height: 1.1;
+    color: #1f2233;
+  }
+
+  .card-resumen {
+    background: #fff;
+    border-radius: 16px;
+    padding: 2rem 2rem 2rem;
+    box-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    position: relative;
+
+    .subtitulo {
+      font-size: 0.625rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 0 0 4px;
+      color: #6f6fef;
+      font-weight: 600;
+    }
+
+    .nombre {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 0.25rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #1f2233;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e3e8f0;
+      margin: 0.75rem 0 1rem;
+    }
+
+    .seccion {
+      margin-bottom: 1.5rem;
+
+      h4 {
+        margin: 0 0 4px;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #1f2233;
+      }
+
+      p {
+        margin: 2px 0;
+        font-size: 0.95rem;
+        color: #2a2a33;
+      }
+    }
+
+    .seccion:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .pagina-resumen {
+    padding: 1rem;
+
+    .titulo-resumen {
+      font-size: 1.9rem;
+    }
+
+    .card-resumen {
+      padding: 1.25rem 1.25rem 1.75rem;
+    }
+
+    .nombre {
+      font-size: 0.95rem;
+    }
+
+    .seccion {
+      h4 {
+        font-size: 0.95rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}

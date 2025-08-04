@@ -1,0 +1,468 @@
+/* pasouno.scss */
+
+.paso-uno {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+
+  .volver-wrapper {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 2.5rem;
+  }
+
+  .opciones {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+
+    .tarjeta {
+      position: relative;
+      background: white;
+      border-radius: 16px;
+      padding: 1.5rem;
+      width: 260px;
+      cursor: pointer;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      border: 1px solid #ddd;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+
+      &:hover:not(.seleccionada) {
+        border-color: #00e68a;
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
+      }
+
+      &.seleccionada {
+        border: 2px solid #000;
+
+        &:hover {
+          border-color: #000;
+          box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
+        }
+      }
+
+      .radio-wrapper {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+
+        input[type="radio"] {
+          position: absolute;
+          opacity: 0;
+          width: 100%;
+          height: 100%;
+          margin: 0;
+        }
+
+        .fake-circle {
+          width: 100%;
+          height: 100%;
+          border: 2px solid #ccc;
+          border-radius: 50%;
+          background: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.2s;
+        }
+      }
+
+      &.seleccionada .radio-wrapper .fake-circle {
+        border-color: #00e68a;
+        background: #00e68a;
+      }
+
+      &.seleccionada .radio-wrapper .fake-circle::after {
+        content: "✔";
+        font-size: 12px;
+        color: white;
+        line-height: 1;
+      }
+
+      img {
+        max-width: 42px;
+        max-height: 42px;
+        margin-bottom: 8px;
+      }
+
+      h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin: 0;
+      }
+
+      p {
+        font-size: 0.9rem;
+        color: #555;
+        margin: 0;
+      }
+    }
+  }
+
+  .planes-wrapper {
+    position: relative;
+  }
+
+  .planes {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-top: 1rem;
+  }
+
+  .tarjeta-plan {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    width: 260px;
+    min-height: 520px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+    text-align: left;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    .badge-recomendado {
+      position: absolute;
+      top: -8px;
+      left: 0;
+      background: #dff7ec;
+      color: #007a44;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 12px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+
+      .titulo-wrapper {
+        display: flex;
+        flex-direction: column;
+
+        h4 {
+          margin: 0;
+          font-size: 1.1rem;
+          font-weight: 700;
+          line-height: 1.1;
+        }
+
+        .subtitulo-plan {
+          font-size: 0.6rem;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          margin: 4px 0 2px;
+          color: #666;
+          font-weight: 600;
+        }
+
+        .precio {
+          font-size: 0.95rem;
+          color: #333;
+          margin: 0;
+        }
+      }
+
+      .icono-plan {
+        flex-shrink: 0;
+
+        img {
+          width: 40px;
+          height: 40px;
+          object-fit: contain;
+        }
+      }
+    }
+
+    .divisor {
+      height: 1px;
+      background: #e3e8f0;
+      margin: 4px 0 8px;
+      border: none;
+    }
+
+    .detalles {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      padding-left: 0;
+      padding-top: 30px;
+      margin: 0;
+      
+
+      li {
+        position: relative;
+        padding-left: 14px;
+        margin-bottom: 16px;
+        font-size: 0.85rem;
+        color: #2a2a33;
+        
+
+        &::before {
+          content: "•";
+          position: absolute;
+          left: 0;
+          top: 0;
+          font-size: 1.8em;
+          line-height: 1;
+          color: #1a1a1f;
+        }
+
+        strong {
+          font-weight: bold;
+        }
+      }
+
+      li:last-child {
+        margin-bottom: 0;
+        
+      }
+    }
+
+    button {
+      margin-top: 1rem;
+      background-color: #ec1c24;
+      color: white;
+      font-weight: 600;
+      border: none;
+      border-radius: 999px;
+      padding: 12px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      width: 100%;
+      transition: filter 0.15s ease;
+
+      &:hover {
+        filter: brightness(1.05);
+      }
+    }
+  }
+
+  .carousel-controls {
+    display: none;
+    margin-top: 0.75rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    .arrow {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      padding: 6px 10px;
+      cursor: pointer;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s ease;
+
+      &:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+      }
+
+      &:hover:not(:disabled) {
+        background: rgba(0, 0, 0, 0.05);
+      }
+    }
+
+    .counter {
+      min-width: 50px;
+      text-align: center;
+    }
+  }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .paso-uno {
+    padding: 1rem;
+    max-width: 100%;
+    text-align: left;
+
+    h1 {
+      font-size: 1.75rem;
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+    }
+
+    .opciones {
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+
+      .tarjeta {
+        width: 100%;
+        padding: 1rem 1rem 1.25rem;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        img {
+          max-width: 42px;
+          max-height: 42px;
+          margin-bottom: 0;
+          flex-shrink: 0;
+        }
+
+        h3 {
+          font-size: 1.05rem;
+          margin: 0;
+        }
+
+        p {
+          font-size: 0.85rem;
+          margin: 0;
+        }
+
+        .radio-wrapper {
+          top: 12px;
+          right: 12px;
+        }
+      }
+    }
+
+    .planes-wrapper {
+      position: relative;
+    }
+
+    .planes {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 1rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 8px;
+      -webkit-overflow-scrolling: touch;
+
+      &::-webkit-scrollbar {
+        height: 6px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 3px;
+      }
+    }
+
+    .tarjeta-plan {
+      flex: 0 0 90%;
+      max-width: 90%;
+      min-height: 560px;
+      scroll-snap-align: center;
+      margin: 0 auto;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+
+      .header {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .titulo-wrapper {
+        h4 {
+          font-size: 1.05rem;
+        }
+        .subtitulo-plan {
+          font-size: 0.55rem;
+        }
+        .precio {
+          font-size: 0.9rem;
+          margin-top: 2px;
+        }
+      }
+
+      .detalles {
+        margin-top: 6px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        li {
+          margin-bottom: 10px;
+        }
+      }
+
+      button {
+        margin-top: auto;
+        padding: 10px;
+        font-size: 0.9rem;
+      }
+    }
+
+    .carousel-controls {
+      display: flex;
+      margin-top: 0.75rem;
+      justify-content: center;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+
+      .arrow {
+        background: none;
+        border: none;
+        font-size: 1.2rem;
+        padding: 6px 10px;
+        cursor: pointer;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.15s ease;
+
+        &:disabled {
+          opacity: 0.3;
+          cursor: not-allowed;
+        }
+
+        &:hover:not(:disabled) {
+          background: rgba(0, 0, 0, 0.05);
+        }
+      }
+
+      .counter {
+        min-width: 50px;
+        text-align: center;
+      }
+    }
+  }
+}
